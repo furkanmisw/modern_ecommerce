@@ -1,4 +1,6 @@
 import 'package:basic_ecommerce/const.dart';
+import 'package:basic_ecommerce/pages/collections.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -33,22 +35,28 @@ class Home extends StatelessWidget {
       ]));
   Widget _categories(context) => Padding(
       padding: const EdgeInsets.only(bottom: 40, top: 28),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(
-          'categories'.toUpperCase(),
-          style: TextStyle(
-            fontSize: 14,
-            fontFamily: 'NunitoSans',
-            fontWeight: FontWeight.bold,
-            color: Color(theme(lightInText, darkInText, context)),
-          ),
+      child: GestureDetector(
+        onTap: () => Navigator.push(context,
+            CupertinoPageRoute(builder: (context) => const Collections())),
+        child: Container(
+          color: Colors.transparent,
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Text(
+              'categories'.toUpperCase(),
+              style: TextStyle(
+                fontSize: 14,
+                fontFamily: 'NunitoSans',
+                fontWeight: FontWeight.bold,
+                color: Color(theme(lightInText, darkInText, context)),
+              ),
+            ),
+            Image.asset(i + 'grid.png',
+                width: 26,
+                color: Color(theme(lightInText, darkInText, context)))
+          ]),
         ),
-        GestureDetector(
-          onTap: () => Navigator.pushNamed(context, 'categories'),
-          child: Image.asset(i + 'grid.png',
-              width: 26, color: Color(theme(lightInText, darkInText, context))),
-        )
-      ]));
+      ));
   Widget _sliders() => Padding(
       padding: const EdgeInsets.only(bottom: 35),
       child: Row(children: [
@@ -75,22 +83,28 @@ class Home extends StatelessWidget {
                       color: Colors.transparent, child: _header(context))),
               _categories(context),
               _sliders(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Trending Collections'.toUpperCase(),
-                    style: const TextStyle(
-                        fontFamily: 'NunitoSans',
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, 'categories'),
+                child: Container(
+                  color: Colors.transparent,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Trending Collections'.toUpperCase(),
+                        style: const TextStyle(
+                            fontFamily: 'NunitoSans',
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Image.asset(
+                        i + 'grid.png',
+                        width: 26,
+                        color: Color(theme(lightInText, darkInText, context)),
+                      )
+                    ],
                   ),
-                  Image.asset(
-                    i + 'grid.png',
-                    width: 26,
-                    color: Color(theme(lightInText, darkInText, context)),
-                  )
-                ],
+                ),
               ),
               const SizedBox(height: 20),
               SizedBox(

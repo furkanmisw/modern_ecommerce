@@ -1,5 +1,7 @@
 import 'package:basic_ecommerce/const.dart';
 import 'package:basic_ecommerce/main.dart';
+import 'package:basic_ecommerce/pages/home.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Page1 extends StatefulWidget {

@@ -14,7 +14,7 @@ class Ma extends StatelessWidget {
     return MaterialApp(
       routes: {
         'home': (context) => const Home(),
-        'categories':(context)=>const Categories(),
+        'categories': (context) => const Categories(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(backgroundColor: const Color(white)),
@@ -23,7 +23,7 @@ class Ma extends StatelessWidget {
         colorScheme:
             const ColorScheme.dark().copyWith(secondary: Colors.transparent),
       ),
-      home: const Page1(),
+       home: const Page1(),      
     );
   }
 }
